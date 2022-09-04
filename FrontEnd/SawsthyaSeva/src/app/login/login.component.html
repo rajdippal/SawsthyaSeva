@@ -1,0 +1,47 @@
+<!-- <div style="height: 150px;" class="myclass"></div> -->
+<div class="px-5 mb-0 bg-light rounded-3 myclass">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Sawsthya Seva</h1>
+    <p class="col-md-8 fs-4">Sawsthya Seva is a medical clinic where we overcome the long practiced of booking patients and appointing to doctor with the help of latest technology with a clear transparency among doctor, patient and receptionist.</p>
+    <a class="btn btn-primary btn-lg" routerLink="/about-us">More...</a>
+  </div>
+</div>
+<div class="container-fluid h-custom myclass">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="./assets/img/login-doctor.png"
+          class="img-fluid" alt="Sample image">
+      </div>
+
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div>
+          <h1 class="mb-3">Log In</h1>
+        </div>
+        <form (ngSubmit)="onSubmit()">
+
+            <div class="form-outline mb-4">
+            <label class="form-label">Email address</label>
+            <input type="email" id="email" class="form-control form-control-lg" name="email"
+                        [(ngModel)]="email"/>
+          </div>
+
+          <div class="form-outline mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" id="password" class="form-control form-control-lg" name="password"
+                        [(ngModel)]="password"/>
+          </div>
+
+          <label class="form-label">Select Role</label>
+          <select class="form-select" name="role" id="role" [(ngModel)]="selectedRole">
+            <option value="Admin">Admin</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Receptionist">Receptionist</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary mt-4">Submit</button>
+
+        </form>
+      </div>
+    </div>
+</div>
+<div style="height: 150px;" class="myclass"></div>

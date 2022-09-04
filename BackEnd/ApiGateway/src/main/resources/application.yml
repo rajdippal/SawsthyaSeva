@@ -1,0 +1,41 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: API-GATEWAY
+  
+  
+  cloud:
+    gateway:
+      routes:
+      - id: PATIENT-SERVER
+        uri: 
+          lb://PATIENT-SERVER
+        predicates:
+         - Path=/patients/**
+         
+      - id: DOCTOR-SERVER
+        uri: 
+          lb://DOCTOR-SERVER
+        predicates:
+         - Path=/doctors/**
+         
+      - id: PRESCRIPTION-SERVER
+        uri: 
+          lb://PRESCRIPTION-SERVER
+        predicates:
+         - Path=/prescriptions/**
+         
+      - id: RECEPTIONIST-SERVER
+        uri: 
+          lb://RECEPTIONIST-SERVER
+        predicates:
+         - Path=/receptionists/**
+         
+      - id: ADMIN-SERVER
+        uri: 
+          lb://ADMIN-SERVER
+        predicates:
+         - Path=/admin/**
+         

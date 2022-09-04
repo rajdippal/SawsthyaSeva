@@ -1,0 +1,102 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:715px;">
+        <span style="color:black" class="fs-4">Doctor Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/doctor/profile" class="nav-link" style="color:black">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/appointments" class="nav-link" style="color:black">
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/prescription" class="nav-link" style="color:black">
+              Make Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/search-patient" class="nav-link" style="color:black">
+              Search Old Patient
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/view-prescription" class="nav-link  active text-white">
+              View Old Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/patient-details" class="nav-link" style="color:black">
+              Patient Details
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/ipds" class="nav-link" style="color:black">
+              Ipd Queue
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/checkout-ipd" class="nav-link" style="color:black">
+              Checkout Ipd
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+    
+    <div class="container mainbar">
+        <br>
+        
+        <div style="float: right;">
+           <img height="150px" width="150px" class="rounded-circle" src="https://media.istockphoto.com/vectors/black-rx-modern-type-symbol-of-physician-and-doctors-required-and-vector-id1276636313?k=20&m=1276636313&s=612x612&w=0&h=3ySKlijQjADKqGUft8D3l6xP4ARBte8c8mef908SZFw=">
+           <p>Date: {{pres.prescription.date | date}}</p>
+        </div>
+        <p style="float: left; padding-top: 90px; font-size: 20px;">{{pres.doctor.name}}<br>{{pres.doctor.specialization}}<br>+91-{{pres.doctor.phone}}</p>
+        <h1 style="padding-left:250px; padding-top:40px;">SawsthyaSeva Prescription</h1>
+        
+        <div style="clear: both;"></div>
+        <hr>
+
+        <div class="row">
+          <div class="col-4">
+            <p style="font-size: 20px;"><b>Patient Name: </b>{{pres.patient.name}}</p>
+          </div>
+          <div class="col-4">
+            <p style="font-size: 20px;"><b>Age: </b>{{pres.patient.age}}</p>
+          </div>
+          <div class="col-4">
+            <p style="font-size: 20px;"><b>Gender: </b>{{pres.patient.gender}}</p>
+          </div>
+          <div class="col-12">
+            <p style="font-size: 20px;"><b>Contact No: </b>+91-{{pres.patient.phone}}</p>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="col-6">
+            <h5>Medicines</h5>
+            <p>{{pres.prescription.medicines}}</p>
+          </div>
+          <div class="col-6">
+            <h5>Tests or Any Other Information</h5>
+            <p>{{pres.prescription.tests}}</p>
+          </div>
+        </div>
+        <hr>
+
+        <div style="float: right;">
+          <h5 class="mb-0">SawsthyaSeva pvt. Ltd</h5>
+          <p class="mb-0">Kolkata-700001</p>
+          <p>Contact No: +91-38929991</p>
+        </div>
+
+    </div>
+</main>

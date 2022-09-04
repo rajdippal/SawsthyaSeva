@@ -1,0 +1,85 @@
+main{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebar{
+    background: linear-gradient(90deg, rgba(173,216,230,1) 11%, rgb(255, 255, 255) 100%, rgba(0,212,255,1) 100%);
+}
+
+
+#name{
+    color:black;
+    border-bottom:2px solid rgba(255,255,255,0.2);
+    padding:0 40px;
+  }
+  #profilepic{
+    height:140px;
+    width:140px;
+    box-shadow: 0 0 42px 0 rgba( 255, 255, 255, 0.17 );
+    background: rgba( 255, 255, 255, 0.25 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 3px solid rgba( 255, 255, 255, 0.18 );
+    border-radius:50%;
+    object-fit: cover;
+      object-position: 50% 10%; 
+  }
+  #photo{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #info{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 20px;
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+input:disabled {
+    background-color: #ffffff;
+}

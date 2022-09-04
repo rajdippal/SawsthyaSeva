@@ -1,0 +1,87 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:780px;">
+        <span style="color:black" class="fs-4">Receptionist Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/receptionist/profile" class="nav-link" style="color:black">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-patient" class="nav-link" style="color:black">
+              Add Patient
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-doctor" class="nav-link" style="color:black">
+              Search Doctor
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/appointments" class="nav-link" style="color:black">
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/take-appointment" class="nav-link" style="color:black">
+              Take Appointment(Existing Patient)
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-prescription" class="nav-link" style="color:black">
+              Search Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/prescription" class="nav-link" style="color:black">
+              Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-ipd" class="nav-link" style="color:black">
+              Add In IPD
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/view-ipd" class="nav-link  active text-white">
+              IPD Queue
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/ipd-history" class="nav-link" style="color:black">
+              IPD History
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar">
+        <br>
+        <table class="table table-striped">
+            <thead class="table-info">
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Patient Age</th>
+                    <th>Patient Gender</th>
+                    <th>Doctor Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ipd of ipds">
+                    <td>{{ipd.ipd.name}}</td>
+                    <td>{{ipd.ipd.age}}</td>
+                    <td>{{ipd.ipd.gender}}</td>
+                    <td>{{ipd.doctor.name}}</td>
+                    <td>{{ipd.ipd.date | date}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+</main>

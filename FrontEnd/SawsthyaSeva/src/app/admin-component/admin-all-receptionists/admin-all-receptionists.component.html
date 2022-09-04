@@ -1,0 +1,57 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:715px;">
+        <span style="color:black" class="fs-4">Admin Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/admin/all-doctors" class="nav-link" style="color:black">
+              All Doctors
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/all-receptionists" class="nav-link  active text-white">
+              All Receptionists
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-doctor" class="nav-link" style="color:black">
+              Add Doctor
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-receptionist" class="nav-link" style="color:black">
+              Add Receptionist
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar">
+      <br>
+      <table class="table table-striped">
+          <thead class="table-info">
+              <tr>
+                  <th>Id</th>
+                  <th>Receptionist Name</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Phone</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let recep of receps">
+                  <td>{{recep.id}}</td>
+                  <td>{{recep.name}}</td>
+                  <td>{{recep.age}}</td>
+                  <td>{{recep.gender}}</td>
+                  <td>{{recep.phone}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</main>

@@ -1,0 +1,59 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:715px;">
+        <span style="color:black" class="fs-4">Admin Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/admin/all-doctors" class="nav-link  active text-white">
+              All Doctors
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/all-receptionists" class="nav-link" style="color:black">
+              All Receptionists
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-doctor" class="nav-link" style="color:black">
+              Add Doctor
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-receptionist" class="nav-link" style="color:black">
+              Add Receptionist
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar" style="overflow-y: scroll; height:715px;">
+        <br>
+        <table class="table table-striped">
+            <thead class="table-info">
+                <tr>
+                    <th>Id</th>
+                    <th>Doctor Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Specialization</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of doctors">
+                    <td>{{doctor.id}}</td>
+                    <td>{{doctor.name}}</td>
+                    <td>{{doctor.age}}</td>
+                    <td>{{doctor.gender}}</td>
+                    <td>{{doctor.email}}</td>
+                    <td>{{doctor.specialization}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

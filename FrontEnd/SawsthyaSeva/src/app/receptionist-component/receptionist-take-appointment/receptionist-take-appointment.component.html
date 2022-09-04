@@ -1,0 +1,105 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:715px;">
+        <span style="color:black" class="fs-4">Receptionist Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/receptionist/profile" class="nav-link" style="color:black">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-patient" class="nav-link" style="color:black">
+              Add Patient
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-doctor" class="nav-link" style="color:black">
+              Search Doctor
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/appointments" class="nav-link" style="color:black">
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/take-appointment" class="nav-link  active text-white">
+              Take Appointment(Existing Patient)
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-prescription" class="nav-link" style="color:black">
+              Search Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/prescription" class="nav-link" style="color:black">
+              Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-ipd" class="nav-link" style="color:black">
+              Add In IPD
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/view-ipd" class="nav-link" style="color:black">
+              IPD Queue
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/ipd-history" class="nav-link" style="color:black">
+              IPD History
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar">
+      <br>
+      <form>
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Patient Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="patientName" name="patientName" [(ngModel)]="name">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" (click)="onSearch()">Search</button>
+      </form>
+      <hr>
+      <br>
+      <div class="container">
+        <table class="table table-striped">
+          <thead class="table-info">
+              <tr>
+                  <th>Patient Id</th>
+                  <th>Patient Name</th>
+                  <th>Doctor Id</th>
+                  <th>Appointment Date</th>
+                  <th>Take Appointment</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let patient of patients">
+                  <td>{{patient.id}}</td>
+                  <td>{{patient.name}}</td>
+                  <td><input type="text" name="doctorId" [(ngModel)]="doctorId"></td>
+                  <td><input type="date" [(ngModel)]="date"></td>
+                  <td><a class="btn btn-light" (click)="onAppoint(patient)">Appoint!</a></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert" *ngIf="msg === true">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Success!</strong> Appointment taken successfully.
+      </div>
+    </div>
+</main>

@@ -1,0 +1,63 @@
+package com.sawysthaSeva.ipdServer.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sawysthaSeva.ipdServer.Entity.Ipd;
+import com.sawysthaSeva.ipdServer.Model.CustomIpd;
+import com.sawysthaSeva.ipdServer.Model.Doctor;
+import com.sawysthaSeva.ipdServer.Model.Patient;
+import com.sawysthaSeva.ipdServer.Repository.IpdRepository;
+
+@Component
+public class IpdService {
+
+	@Autowired
+	private IpdRepository ipdRepo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	ObjectMapper mapper = new ObjectMapper();
+	
+	public Ipd addIpd(Ipd ipd) {
+		return ipdRepo.save(ipd);
+	}
+	
+	public List<CustomIpd> getIpdOfPatient(String name){
+		List<CustomIpd> list = new ArrayList<>();
+		
+		JsonNode node = restTemplate.getForObject("http://PATIENT-SERVER/patients/get/"+name, JsonNode.class);
+		
+		List<Patient> patients = mapper.convertValue(node, new TypeReference<List<Patient>>() {
+		});
+		
+		for(Patient p : patients) {
+			List<Ipd> ipds = ipdRepo.findByPatientId(p.getId());
+			
+			for(Ipd ipd : ipds) {
+				CustomIpd ci = new CustomIpd();
+				ci.setPatient(p);
+				ci.setIpd(ipd);
+				
+				JsonNode dNode = restTemplate.getForObject("http://DOCTOR-SERVER/doctors/get/id/"+ipd.getDoctorId(), JsonNode.class);
+				
+				Doctor d = mapper.convertValue(dNode, new TypeReference<Doctor>() {
+				});
+				
+				ci.setDoctor(d);
+				list.add(ci);
+			}
+		}
+		return list;
+		
+	}
+	
+}

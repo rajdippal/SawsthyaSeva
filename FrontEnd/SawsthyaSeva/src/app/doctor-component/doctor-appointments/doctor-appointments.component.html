@@ -1,0 +1,87 @@
+<div class="main">
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:715px;">
+        <span style="color:black" class="fs-4">Doctor Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/doctor/profile" class="nav-link" style="color:black">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/appointments" class="nav-link  active text-white">
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/prescription" class="nav-link" style="color:black">
+              Make Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/search-patient" class="nav-link" style="color:black">
+              Search Old Patient
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/view-prescription" class="nav-link" style="color:black">
+              View Old Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/patient-details" class="nav-link" style="color:black">
+              Patient Details
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/ipds" class="nav-link" style="color:black">
+              Ipd Queue
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/checkout-ipd" class="nav-link" style="color:black">
+              Checkout Ipd
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar">
+        <br>
+        <div *ngIf="patients.length != 0">
+          <table class="table table-striped">
+            <thead class="table-info">
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Patient Age</th>
+                    <th>Patient Gender</th>
+                    <th>Patient Contact</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patients">
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.age}}</td>
+                    <td>{{patient.gender}}</td>
+                    <td>{{patient.phone}}</td>
+                    <td>{{patient.registrationDate | date}}</td>
+                    <td><a class="btn btn-warning" (click)="onCheckOut(patient)">CheckOut</a></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="patients.length == 0">
+          <h4>No Current Appointments!</h4>
+        </div>
+        
+    </div>
+</div>

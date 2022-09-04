@@ -1,0 +1,12 @@
+main{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebar{
+    background: linear-gradient(90deg, rgba(173,216,230,1) 11%, rgb(255, 255, 255) 100%, rgba(0,212,255,1) 100%);
+}
+
+.mainbar{
+    background: linear-gradient(180deg, rgba(181,241,236,1) 0%, rgba(247,247,250,1) 35%, rgba(255,255,255,1) 100%);
+}

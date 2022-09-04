@@ -1,0 +1,143 @@
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white sidebar" style="width: 280px; height:780px;">
+        <span style="color:black" class="fs-4">Receptionist Dashboard</span>
+        <hr style="color:black">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/receptionist/profile" class="nav-link" style="color:black">
+              Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-patient" class="nav-link  active text-white">
+              Add Patient
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-doctor" class="nav-link" style="color:black">
+              Search Doctor
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/appointments" class="nav-link" style="color:black">
+              Appointments
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/take-appointment" class="nav-link" style="color:black">
+              Take Appointment(Existing Patient)
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/search-prescription" class="nav-link" style="color:black">
+              Search Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/prescription" class="nav-link" style="color:black">
+              Prescription
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/add-ipd" class="nav-link" style="color:black">
+              Add In IPD
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/view-ipd" class="nav-link" style="color:black">
+              IPD Queue
+            </a>
+          </li>
+          <li>
+            <a routerLink="/receptionist/ipd-history" class="nav-link" style="color:black">
+              IPD History
+            </a>
+          </li>
+          <li>
+            <a routerLink="" class="nav-link" style="color:black">
+              Log Out
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="container mainbar">
+      <br>
+      
+      <div style="float: right;">
+         <img height="150px" width="150px" class="rounded-circle" src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/06/medical-logo.jpg">
+      </div>
+      <h1 style="padding-left:250px; padding-top:40px;">SawsthyaSeva Patient Form</h1>
+      
+      <div style="clear: both;"></div>
+      <hr>
+
+      <form>
+        <div class="row mb-3">
+          <div class="col-6">
+            <label class="form-label">Patient Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+          </div>
+          <div class="col-2">
+            <label class="form-label">Age</label>
+            <input type="text" class="form-control" id="age" name="age" [(ngModel)]="age">
+          </div>
+          <div class="col-2">
+            <label class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="gender">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-2">
+            <label class="form-label">Blood Group</label>
+            <input type="text" class="form-control" id="blood" name="blood" [(ngModel)]="bloodGroup">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Adhar No</label>
+            <input type="text" class="form-control" id="adhar" name="adhar" 
+                      (click)="validateAdhar()" [(ngModel)]="adhar">
+            <p style="color: red;">{{invalidAdhar}}</p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <label class="form-label">Email Address</label>
+            <input type="text" class="form-control" id="email" name="email" 
+                      (click)="validateEmail()" [(ngModel)]="email">
+            <p style="color: red;">{{invalidEmail}}</p>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Phone No</label>
+            <input type="text" class="form-control" id="phone" name="phone" 
+                      (click)="validatePhone()" [(ngModel)]="phone">
+            <p style="color: red;">{{invalidPhone}}</p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address">
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-4">
+            <label class="form-label">Doctor Id</label>
+            <input type="number" class="form-control" id="doctorId" name="doctorId" [(ngModel)]="patient.doctor_id">
+          </div>
+          <div class="col-4">
+            <label class="form-label">Appointment Date</label>
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="registrationDate">
+          </div>
+        </div>
+
+        <button class="btn btn-success p-2" style="margin-left: 450px;" (click)="onSubmit()">Submit</button>
+      </form>
+
+      <div class="alert" *ngIf="msg === true">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Success!</strong> Patient registered successfully.
+      </div>
+    </div>
+</main>

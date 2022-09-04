@@ -1,0 +1,46 @@
+package com.sawysthaSeva.ipdServer.Model;
+
+import com.sawysthaSeva.ipdServer.Entity.Ipd;
+
+public class CustomIpd {
+	
+	private Ipd ipd;
+	private Doctor doctor;
+	private Patient patient;
+	
+	public CustomIpd() {
+		
+	}
+
+	public CustomIpd(Ipd ipd, Doctor doctor, Patient patient) {
+		super();
+		this.ipd = ipd;
+		this.doctor = doctor;
+		this.patient = patient;
+	}
+
+	public Ipd getIpd() {
+		return ipd;
+	}
+
+	public void setIpd(Ipd ipd) {
+		this.ipd = ipd;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+}

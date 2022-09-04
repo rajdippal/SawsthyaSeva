@@ -1,0 +1,20 @@
+package com.sawysthaSeva.ipdServer.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.sawysthaSeva.ipdServer.Entity.Ipd;
+import com.sawysthaSeva.ipdServer.Repository.IpdRepository;
+
+@Component
+public class IpdService {
+
+	@Autowired
+	private IpdRepository ipdRepo;
+	
+	public Ipd addIpd(Ipd ipd) {
+		return ipdRepo.save(ipd);
+	}
+	
+	
+}

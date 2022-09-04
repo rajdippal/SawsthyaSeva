@@ -1,0 +1,10 @@
+package com.sawysthaSeva.ipdServer.Model;
+
+import com.sawysthaSeva.ipdServer.Entity.Ipd;
+
+public class CustomIpd {
+	
+	private Ipd ipd;
+	Doctor
+
+}

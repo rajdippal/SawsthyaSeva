@@ -1,0 +1,34 @@
+main{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebar{
+    background: linear-gradient(90deg, rgba(173,216,230,1) 11%, rgb(255, 255, 255) 100%, rgba(0,212,255,1) 100%);
+}
+
+td,th{
+    text-align: center;
+}
+
+.alert {
+    margin: 10px;
+    padding: 15px;
+    background-color: #4BB543;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

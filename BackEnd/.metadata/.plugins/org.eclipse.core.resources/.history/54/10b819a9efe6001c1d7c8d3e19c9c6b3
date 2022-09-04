@@ -1,0 +1,82 @@
+package com.sawysthaSeva.ipdServer.Entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Ipd {
+
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	private String operation;
+	private int doctorId;
+	private int patientId;
+	private Date date;
+	
+	public Ipd() {
+		
+	}
+
+	public Ipd(Integer id, String operation, int doctorId, int patientId, Date date) {
+		super();
+		this.id = id;
+		this.operation = operation;
+		this.doctorId = doctorId;
+		this.patientId = patientId;
+		this.date = date;
+	}
+
+	public Ipd(String operation, int doctorId, int patientId, Date date) {
+		super();
+		this.operation = operation;
+		this.doctorId = doctorId;
+		this.patientId = patientId;
+		this.date = date;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
+	public int getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	public int getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+}
